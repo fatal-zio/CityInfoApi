@@ -1,0 +1,14 @@
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\bin\Debug\netcoreapp2.1\CityInfoApi.deps.json
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\bin\Debug\netcoreapp2.1\CityInfoApi.runtimeconfig.json
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\bin\Debug\netcoreapp2.1\CityInfoApi.runtimeconfig.dev.json
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\bin\Debug\netcoreapp2.1\CityInfoApi.dll
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\bin\Debug\netcoreapp2.1\CityInfoApi.pdb
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.csprojAssemblyReference.cache
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.csproj.CoreCompileInputs.cache
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.RazorAssemblyInfo.cache
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.RazorAssemblyInfo.cs
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.AssemblyInfoInputs.cache
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.AssemblyInfo.cs
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.RazorTargetAssemblyInfo.cache
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.dll
+c:\Users\jdesrosiers3\Documents\GitHub\CityInfoApi\obj\Debug\netcoreapp2.1\CityInfoApi.pdb
