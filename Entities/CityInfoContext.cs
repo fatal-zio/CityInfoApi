@@ -6,7 +6,7 @@ namespace CityInfoApi.Entities
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=cities.db");
+            optionsBuilder.UseSqlite(Startup.Configuration["connectionStrings:cityDBConnectionString"]);
         }
 
         public DbSet<City> Cities { get; set; }
