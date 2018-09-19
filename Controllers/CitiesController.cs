@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using AutoMapper;
 using CityInfoApi.Contracts;
 using CityInfoApi.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -17,63 +18,22 @@ namespace CityInfoApi.Controllers
         public IActionResult GetCities()
         {
             var cityEntities = _cityInfoRepository.GetCities();
-            var results = new List<CityWithoutPointsOfInterestDto>();
 
-            foreach (var cityEntity in cityEntities)
-            {
-                results.Add(new CityWithoutPointsOfInterestDto
-                {
-                    Id = cityEntity.Id,
-                    Description = cityEntity.Description,
-                    Name = cityEntity.Name
-                });
-            }
-
-            return Ok(results);
+            return Ok(Mapper.Map<IEnumerable<CityWithoutPointsOfInterestDto>>(cityEntities));
         }
 
         [HttpGet("{id}")]
         public IActionResult GetCity(int id, bool includePointsOfInterest = false)
         {
-            var city = _cityInfoRepository.GetCity(id, includePointsOfInterest);
-            
-            if (city == null) {
+            if (!_cityInfoRepository.CityExists(id)) {
                 return NotFound();
             }
 
-            if (includePointsOfInterest) {
+            var city = _cityInfoRepository.GetCity(id, includePointsOfInterest);
 
-                CityDto cityWithPointsOfInterestResult =
-                    new CityDto()
-                    {
-                            Id = city.Id,
-                            Name = city.Name,
-                            Description = city.Description
-                    };
-
-                foreach (var poi in city.PointsOfInterest)
-                {
-                    cityWithPointsOfInterestResult.PointsOfInterest.Add(
-                        new PointOfInterestDto()
-                        {
-                            Id = poi.Id,
-                            Name = poi.Name,
-                            Description = poi.Description
-                        }
-                    );
-                }
-
-                return Ok(cityWithPointsOfInterestResult);
-            }
-
-            var cityResult = new CityWithoutPointsOfInterestDto()
-            {
-                Id = city.Id,
-                Name = city.Name,
-                Description = city.Description
-            };
-
-            return Ok(cityResult);
+            return includePointsOfInterest ?
+                 Ok(Mapper.Map<CityDto>(city)) :
+                Ok(Mapper.Map<CityWithoutPointsOfInterestDto>(city));
         }
     }
 

@@ -1,6 +1,8 @@
-﻿using CityInfoApi.Contracts;
+﻿using AutoMapper;
+using CityInfoApi.Contracts;
 using CityInfoApi.Entities;
 using CityInfoApi.Extensions;
+using CityInfoApi.Models;
 using CityInfoApi.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -25,6 +27,7 @@ namespace CityInfoApi
             services.AddTransient<IMailService, LocalMailService>()
                     .AddTransient<CityInfoContext>()
                     .AddScoped<ICityInfoRepository, CityInfoRepository>()
+                    .AddAutoMapper()
                     .AddMvc()
                     .AddMvcOptions(o => o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()));
         }
@@ -46,6 +49,13 @@ namespace CityInfoApi
             cityInfoContext.EnsureSeedDataForContext();
 
             app.UseMvc().UseStatusCodePages();
+
+            AutoMapper.Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<City, CityWithoutPointsOfInterestDto>();
+                cfg.CreateMap<City, CityDto>();
+                cfg.CreateMap<PointOfInterest, PointOfInterestDto>();
+            });
 
             app.Run(async (context) =>
             {
