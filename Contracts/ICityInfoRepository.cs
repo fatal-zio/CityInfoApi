@@ -9,6 +9,8 @@ namespace CityInfoApi.Contracts
          City GetCity(int cityId, bool includePointsOfInterest);
          IEnumerable<PointOfInterest> GetPointsOfInterestForCity(int cityId);
          PointOfInterest GetPointOfInterestForCity(int cityId, int pointOfInterestId);
+         void AddPointOfInterestForCity(int cityId, PointOfInterest pointOfInterest);
          bool CityExists(int cityId);
+         bool Save();
     }
 }

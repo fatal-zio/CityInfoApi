@@ -11,6 +11,12 @@ namespace CityInfoApi.Contracts
 
         public CityInfoRepository(CityInfoContext context) => _context = context;
 
+        public void AddPointOfInterestForCity(int cityId, PointOfInterest pointOfInterest)
+        {
+            var city = GetCity(cityId, false);
+            city.PointsOfInterest.Add(pointOfInterest);
+        }
+
         public bool CityExists(int cityId) => _context.Cities.Any(o => o.Id == cityId);
 
         public IEnumerable<City> GetCities() => _context.Cities.OrderBy(o => o.Name).ToList();
@@ -26,5 +32,10 @@ namespace CityInfoApi.Contracts
 
         public IEnumerable<PointOfInterest> GetPointsOfInterestForCity(int cityId) => 
             _context.PointsOfInterest.Where(o => o.CityId == cityId).ToList();
+
+        public bool Save()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
     }
 }
