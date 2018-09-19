@@ -19,6 +19,11 @@ namespace CityInfoApi.Contracts
 
         public bool CityExists(int cityId) => _context.Cities.Any(o => o.Id == cityId);
 
+        public void DeletePointOfInterest(PointOfInterest pointOfInterest)
+        {
+            _context.PointsOfInterest.Remove(pointOfInterest);
+        }
+
         public IEnumerable<City> GetCities() => _context.Cities.OrderBy(o => o.Name).ToList();
 
         public City GetCity(int cityId, bool includePointsOfInterest) => 

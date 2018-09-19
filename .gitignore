@@ -3,4 +3,4 @@ bin/Debug/netcoreapp2.1/CityInfoApi.dll
 obj/Debug/netcoreapp2.1/CityInfoApi.dll
 obj/Debug/netcoreapp2.1/CityInfoApi.pdb
 bin/Debug/netcoreapp2.1/Logs/*.log
-*.db
+**.db
