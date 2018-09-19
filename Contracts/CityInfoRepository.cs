@@ -11,6 +11,8 @@ namespace CityInfoApi.Contracts
 
         public CityInfoRepository(CityInfoContext context) => _context = context;
 
+        public bool CityExists(int cityId) => _context.Cities.Any(o => o.Id == cityId);
+
         public IEnumerable<City> GetCities() => _context.Cities.OrderBy(o => o.Name).ToList();
 
         public City GetCity(int cityId, bool includePointsOfInterest) => 
