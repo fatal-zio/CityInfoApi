@@ -1,4 +1,5 @@
-﻿using CityInfoApi.Entities;
+﻿using CityInfoApi.Contracts;
+using CityInfoApi.Entities;
 using CityInfoApi.Extensions;
 using CityInfoApi.Services;
 using Microsoft.AspNetCore.Builder;
@@ -23,6 +24,7 @@ namespace CityInfoApi
         {
             services.AddTransient<IMailService, LocalMailService>()
                     .AddTransient<CityInfoContext>()
+                    .AddScoped<ICityInfoRepository, CityInfoRepository>()
                     .AddMvc()
                     .AddMvcOptions(o => o.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter()));
         }
