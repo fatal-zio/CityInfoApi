@@ -56,6 +56,7 @@ namespace CityInfoApi
                 cfg.CreateMap<City, CityDto>();
                 cfg.CreateMap<PointOfInterest, PointOfInterestDto>();
                 cfg.CreateMap<PointOfInterestForCreationDto, PointOfInterest>();
+                cfg.CreateMap<PointOfInterestForUpdateDto, PointOfInterest>();
             });
 
             app.Run(async (context) =>
